@@ -146,7 +146,8 @@ pip install "numpy<2.4" scipy matplotlib numba "numba-cuda[cu13]"
 python reed_side.py --prefix sw --p-amb 70e3 85e3 101325 115e3 130e3 --dp 1000 2000 --kick=-0.5e-3 --t-end 0.06
 python compare.py runs/sw_*                        # pitch at matched amplitude
 python poster_chart.py runs/sw_dp_compare.json     # the chart above
-python render_fields.py runs/sw_dp1000_p_amb101325 --out poster --movie
+python reed_side.py --prefix an --dp 1000 --kick=-0.5e-3 --t-end 0.06 --snap-per-cycle 72   # 72 frames per cycle
+python render_fields.py runs/an_run --out poster --movie   # stills.png, flow.gif
 ```
 
 | file | what |

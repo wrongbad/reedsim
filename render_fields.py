@@ -232,8 +232,8 @@ def movie(d, out, fps=None, loops=3):
                         "-movflags", "+faststart", os.path.join(out, "cycle.mp4")], check=True)
         # GitHub READMEs can't embed mp4 from the repo: also write a palette-optimised GIF (one cycle, looping)
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", os.path.join(out, "cycle.mp4"), "-t",
-                        f"{nt / fps:.4f}", "-vf", f"fps={fps},scale=960:-1:flags=lanczos,split[a][b];"
-                        "[a]palettegen=max_colors=192:stats_mode=full[p];[b][p]paletteuse=dither=sierra2_4a",
+                        f"{nt / fps:.4f}", "-vf", f"fps={fps},scale=800:-1:flags=lanczos,split[a][b];"
+                        "[a]palettegen=max_colors=128:stats_mode=full[p];[b][p]paletteuse=dither=bayer:bayer_scale=4",
                         "-loop", "0", os.path.join(out, "flow.gif")], check=True)
     shutil.rmtree(tmp)
 
