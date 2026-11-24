@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+runs/
+runs_gpu/
+poster/test/
+.DS_Store
+poster/*.mp4
+poster/hero.png
